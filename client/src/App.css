@@ -12,15 +12,13 @@
 /* NavBar */
 
 .navbar {
-  position: sticky;
   width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4.5rem;
+  min-height: 4.5rem;
+  padding-bottom: 5px;
   box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.2);
-  left: 0px;
-  top: 0px;
   background: #f9f9f9;
   padding-right: 0.5rem;
 }
@@ -78,4 +76,21 @@
 
 .post-btn>p {
   margin-left: 10px;
+}
+
+/* mobile styles */
+@media screen and (max-width: 900px) {
+  .post-btn>p {
+    font-size: 16px;
+  }
+
+  .logo div>img {
+    height: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar .icons {
+    display: none;
+  }
 }
