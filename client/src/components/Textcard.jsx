@@ -2,7 +2,7 @@ import React from 'react'
 import { RiDeleteBinFill } from 'react-icons/ri';
 import { BsPencilFill } from 'react-icons/bs';
 
-const Textcard = ({ details }) => {
+const Textcard = ({ details, setFormType, setShowModal, setEditPost }) => {
     return (
         <div className="card">
             <div className="card-img textcard-body">
@@ -17,7 +17,11 @@ const Textcard = ({ details }) => {
                 </div>
                 <div className="icons">
                     <RiDeleteBinFill id="trash" />
-                    <BsPencilFill id="edit" />
+                    <BsPencilFill id="edit" onClick={() => {
+                        setEditPost(details);
+                        setFormType("Edit");
+                        setShowModal(true);
+                    }} />
                 </div>
             </div>
         </div>
