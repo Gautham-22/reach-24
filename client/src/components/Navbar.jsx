@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaPlus } from 'react-icons/fa';
 
-const Navbar = () => {
+const Navbar = ({ status, cur }) => {
     return (
         <div className="navbar">
             <div className="logo">
@@ -26,7 +26,7 @@ const Navbar = () => {
                     <img src={'send.png'} alt="DM" />
                 </div>
             </div>
-            <button type="button" className="post-btn">
+            <button type="button" className="post-btn" onClick={() => status(!cur)}>
                 <FaPlus /> <p>Add new post</p>
             </button>
         </div>
