@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { ImCross } from 'react-icons/im';
 import { FaCheck } from 'react-icons/fa';
+import axios from "axios"
+import { toast } from 'react-toastify';
 
-const Postform = ({ cur, status }) => {
+const Postform = ({ cur, status, setLoadPosts }) => {
 
     const [postType, setPostType] = useState('image');
     const [name, setName] = useState('');
@@ -12,7 +14,25 @@ const Postform = ({ cur, status }) => {
     const [imgLink, setImgLink] = useState('');
 
     const handleSubmit = () => {
-        alert("Post creation success!");
+        axios.post("http://localhost:5000/api/posts", {
+            name,
+            location,
+            image: imgLink,
+            title,
+            caption,
+            postType
+        })
+            .then((response) => {
+                if (response.status === 201) {
+                    toast.success("Post creation success!");
+                    setLoadPosts((prev) => prev + 1);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                toast.error("Something went wrong :(");
+            });
+        status(!cur);
     }
 
     return (

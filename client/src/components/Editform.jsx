@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { ImCross } from 'react-icons/im';
 import { FaCheck } from 'react-icons/fa';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 
-const Editform = ({ cur, status, details, setFormType }) => {
+const Editform = ({ cur, status, details, setFormType, setLoadPosts }) => {
 
     const [postType, setPostType] = useState(details.postType);
     const [name, setName] = useState(details.name);
@@ -12,7 +14,24 @@ const Editform = ({ cur, status, details, setFormType }) => {
     const [imgLink, setImgLink] = useState(details.image);
 
     const handleSubmit = () => {
-        alert("Post edit success!");
+        axios.put(`http://localhost:5000/api/posts/${details._id}`, {
+            name,
+            location,
+            image: imgLink,
+            title,
+            caption,
+            postType
+        })
+            .then((response) => {
+                if (response.status === 200) {
+                    toast.success("Post edit success!");
+                    setLoadPosts((prev) => prev + 1);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                toast.error("Something went wrong :(");
+            });
         status(!cur);
         setFormType("Add");
     }
