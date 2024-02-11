@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.App {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* NavBar */
+
+.navbar {
+  position: sticky;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.5rem;
+  box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.2);
+  left: 0px;
+  top: 0px;
+  background: #f9f9f9;
+  padding-right: 0.5rem;
+}
+
+.logo {
+  display: flex;
+  margin-left: 1.5rem;
+  cursor: pointer;
+}
+
+.logo div>img {
+  height: 2.5rem;
+}
+
+.icons {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons div {
+  margin: 0 1rem;
+}
+
+.icons div>img {
+  height: 1.7rem;
+  cursor: pointer;
+}
+
+.icons div:last-child {
+  margin: -1px;
+}
+
+.icons div:last-child>img {
+  height: 1.4rem;
+}
+
+.post-btn {
+  font-family: 'Lato', sans-serif;
+  background-color: #cc7a8b;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.5rem;
+  border: none;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.post-btn:hover {
+  background-color: #a56572;
+}
+
+.post-btn>p {
+  margin-left: 10px;
+}
